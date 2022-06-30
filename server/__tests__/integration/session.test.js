@@ -80,4 +80,15 @@ describe("Authentication", () => {
 
 		expect(response.status).toBe(200);
 	});
+
+	it("should NOT be able to access private routes WITHOUT jwt token", async () => {
+		const user = await User.create({
+			username: RANDOM_USERNAME,
+			password: RANDOM_PASSWORD,
+		});
+
+		const response = await request(app).get("/home");
+
+		expect(response.status).toBe(401);
+	});
 });
