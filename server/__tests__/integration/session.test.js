@@ -39,4 +39,18 @@ describe("Authentication", () => {
 
 		expect(response.status).toBe(401);
 	});
+
+	it("should NOT authenticate with invalid password", async () => {
+		const user = await User.create({
+			username: RANDOM_USERNAME,
+			password: RANDOM_PASSWORD,
+		});
+
+		const response = await request(app).post("/login").send({
+			username: RANDOM_USERNAME,
+			password: "wrongpassword",
+		});
+
+		expect(response.status).toBe(401);
+	});
 });

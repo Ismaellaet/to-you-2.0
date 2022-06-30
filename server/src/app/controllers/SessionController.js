@@ -14,6 +14,14 @@ class SessionController {
 			});
 		}
 
+		const invalidPassword = !(await user.checkPassword(password));
+
+		if (invalidPassword) {
+			return res.status(401).json({
+				message: "Invalid username or password!",
+			});
+		}
+
 		return res.status(200).json({
 			user,
 		});
