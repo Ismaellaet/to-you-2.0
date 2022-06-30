@@ -67,4 +67,17 @@ describe("Authentication", () => {
 
 		expect(response.body).toHaveProperty("token");
 	});
+
+	it("should be able to access private routes with jwt token", async () => {
+		const user = await User.create({
+			username: RANDOM_USERNAME,
+			password: RANDOM_PASSWORD,
+		});
+
+		const response = await request(app)
+			.get("/home")
+			.set("Authorization", `Bearer ${user.generateToken()}`);
+
+		expect(response.status).toBe(200);
+	});
 });
