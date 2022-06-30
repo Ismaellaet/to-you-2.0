@@ -1,6 +1,4 @@
-import express from "express";
-
-import routes from "./routes";
+const express = require("express");
 
 class AppController {
 	constructor() {
@@ -15,8 +13,8 @@ class AppController {
 	}
 
 	routes() {
-		this.express.use(routes);
+		this.express.use(require("./routes"));
 	}
 }
 
-export default new AppController().express;
+module.exports = new AppController().express;

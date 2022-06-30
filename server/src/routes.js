@@ -1,5 +1,3 @@
-import express from "express";
+const routes = require("express").Router();
 
-const routes = express.Router();
-
-export default routes;
+module.exports = routes;
