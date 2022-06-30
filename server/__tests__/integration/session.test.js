@@ -25,4 +25,18 @@ describe("Authentication", () => {
 
 		expect(response.status).toBe(200);
 	});
+
+	it("should NOT authenticate with invalid username", async () => {
+		const user = await User.create({
+			username: RANDOM_USERNAME,
+			password: RANDOM_PASSWORD,
+		});
+
+		const response = await request(app).post("/login").send({
+			username: "wrongUsername",
+			password: RANDOM_PASSWORD,
+		});
+
+		expect(response.status).toBe(401);
+	});
 });
