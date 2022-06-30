@@ -24,6 +24,7 @@ class SessionController {
 
 		return res.status(200).json({
 			user,
+			token: user.generateToken(),
 		});
 	}
 }
