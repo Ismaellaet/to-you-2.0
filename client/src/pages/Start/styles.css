@@ -1,0 +1,34 @@
+h1 {
+	width: 100%;
+
+	text-align: center;
+
+	font-size: 3.2rem;
+	font-weight: 400;
+
+	margin-bottom: 2.6rem;
+
+	color: var(--title);
+}
+
+span {
+	display: block;
+
+	font-weight: 700;
+	text-align: center;
+	line-height: 160%;
+
+	color: var(--text);
+
+	max-width: 28.6rem;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2.8rem;
+
+	width: 100%;
+}
