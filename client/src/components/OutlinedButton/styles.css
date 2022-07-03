@@ -1,4 +1,8 @@
 .outlined-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
 	background: transparent;
 	color: var(--border);
 

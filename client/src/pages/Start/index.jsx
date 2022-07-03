@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { Logo } from "../../components/Logo";
 import { OutlinedButton } from "../../components/OutlinedButton";
 import { PrimaryButton } from "../../components/PrimaryButton";
@@ -19,8 +21,13 @@ export function Start() {
 				<Logo />
 
 				<div className="buttons">
-					<PrimaryButton text="login" />
-					<OutlinedButton text="create acount" />
+					<Link to="./Login" className="button">
+						<PrimaryButton text="login" />
+					</Link>
+
+					<Link to="/" className="button">
+						<OutlinedButton text="create acount" />
+					</Link>
 				</div>
 			</div>
 		</div>

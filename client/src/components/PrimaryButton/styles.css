@@ -1,4 +1,8 @@
 .primary-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
 	background: var(--primary);
 	color: white;
 
