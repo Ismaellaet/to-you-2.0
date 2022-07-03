@@ -4,8 +4,10 @@
 	--dark-bg: hsl(240, 5%, 4%);
 	--title: hsl(240, 9%, 89%);
 	--text: hsl(240, 7%, 78%);
+	--secondary-text: hsl(240, 6%, 58%);
 	--primary: hsl(162, 100%, 26%);
 	--border: hsl(162, 100%, 35%);
+	--inputs: hsl(240, 5%, 7%);
 }
 
 * {
@@ -33,13 +35,39 @@ body {
 }
 
 .wrapper {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-between;
-
 	width: min(32rem, 100%);
 	min-height: min(81.2rem, 90vh);
 
 	padding-top: 8rem;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+
+	padding: 0;
+	margin: -1px;
+
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+
+form input {
+	background: var(--inputs);
+
+	border: none;
+	border-radius: 0.4rem;
+	outline: none;
+
+	color: white;
+	font-size: 1.6rem;
+	padding: 1.2rem;
+	width: 100%;
+}
+
+form input:focus {
+	border: 1px solid var(--border);
 }

@@ -9,7 +9,7 @@ import "./styles.css";
 export function Start() {
 	return (
 		<div className="container">
-			<div className="wrapper">
+			<div className="wrapper start">
 				<div>
 					<h1>Welcome to ToYou</h1>
 
