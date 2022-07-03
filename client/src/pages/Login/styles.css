@@ -1,11 +1,9 @@
-.container .wrapper.login {
+.container .wrapper {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: center;
 	gap: 5.2rem;
-
-	padding: 0;
 }
 
 h2 {

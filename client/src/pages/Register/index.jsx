@@ -2,30 +2,32 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { CaretLeft } from "phosphor-react";
 
-import { OutlinedButton } from "../../components/OutlinedButton";
 import { PrimaryButton } from "../../components/PrimaryButton";
 
 import "./styles.css";
 
-export function Login() {
+export function Register() {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState();
+	const [confirmPassword, setConfirmPassword] = useState();
 
 	function handleSubmit(event) {
 		event.preventDefault();
 		console.log(`
 		Username => ${username}
-		Password => ${password}`);
+		Password => ${password}
+		Confirm password => ${confirmPassword}`);
 	}
 
 	return (
 		<div className="container">
-			<div className="wrapper login">
-				<Link to="/">
+			<div className="wrapper register">
+				<Link to="/login">
 					<CaretLeft size={32} color="var(--border)" />
 				</Link>
 
-				<h2>Login</h2>
+				<h2>Register</h2>
+
 				<form onSubmit={handleSubmit}>
 					<label htmlFor="username" className="sr-only">
 						Enter your Username :
@@ -52,20 +54,22 @@ export function Login() {
 						onChange={e => setPassword(e.target.value)}
 					/>
 
+					<label htmlFor="password" className="sr-only">
+						Confirm your Password
+					</label>
+
+					<input
+						type="password"
+						name="confirmPassword"
+						id="confirmPassword"
+						placeholder="Confirm your Password"
+						onChange={e => setConfirmPassword(e.target.value)}
+					/>
+
 					<button>
-						<PrimaryButton text="login" />
+						<PrimaryButton text="register" />
 					</button>
 				</form>
-
-				<div className="separator">
-					<div className="line"></div>
-					<div>or</div>
-					<div className="line"></div>
-				</div>
-
-				<Link to="/Register" className="button">
-					<OutlinedButton text="register" />
-				</Link>
 			</div>
 		</div>
 	);

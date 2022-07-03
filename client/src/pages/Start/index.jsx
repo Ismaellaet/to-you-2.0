@@ -21,11 +21,11 @@ export function Start() {
 				<Logo />
 
 				<div className="buttons">
-					<Link to="./Login" className="button">
+					<Link to="/login" className="button">
 						<PrimaryButton text="login" />
 					</Link>
 
-					<Link to="/" className="button">
+					<Link to="/register" className="button">
 						<OutlinedButton text="create acount" />
 					</Link>
 				</div>

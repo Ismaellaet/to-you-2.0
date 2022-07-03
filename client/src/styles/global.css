@@ -37,8 +37,6 @@ body {
 .wrapper {
 	width: min(32rem, 100%);
 	min-height: min(81.2rem, 90vh);
-
-	padding-top: 8rem;
 }
 
 .sr-only {
