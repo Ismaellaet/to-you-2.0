@@ -27,6 +27,20 @@ class SessionController {
 			token: user.generateToken(),
 		});
 	}
+
+	async register(req, res) {
+		const { username, password } = req.body;
+
+		const user = await User.create({
+			username: username,
+			password,
+		});
+
+		return res.status(200).json({
+			user,
+			token: user.generateToken(),
+		});
+	}
 }
 
 module.exports = new SessionController();

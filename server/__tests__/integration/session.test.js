@@ -9,6 +9,15 @@ describe("Authentication", () => {
 		await truncate();
 	});
 
+	it("should register a user in a database", async () => {
+		const response = await request(app).post("/register").send({
+			username: "randomUsername",
+			password: "randompassword",
+		});
+
+		expect(response.statusCode).toBe(200);
+	});
+
 	it("should authenticate with valid credentials", async () => {
 		const user = await factory.create("User");
 
