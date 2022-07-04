@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { CaretLeft } from "phosphor-react";
+import axios from "axios";
 
 import { PrimaryButton } from "../../components/PrimaryButton";
 
@@ -11,12 +12,23 @@ export function Register() {
 	const [password, setPassword] = useState();
 	const [confirmPassword, setConfirmPassword] = useState();
 
-	function handleSubmit(event) {
+	async function handleSubmit(event) {
 		event.preventDefault();
-		console.log(`
-		Username => ${username}
-		Password => ${password}
-		Confirm password => ${confirmPassword}`);
+		const URL = "http://localhost:5000/register";
+
+		if (confirmPassword === password) {
+			await axios
+				.post(URL, {
+					username,
+					password,
+				})
+				.then(res => console.log(res))
+				.catch(error => console.error(error));
+
+			return;
+		}
+
+		console.log("Passwords are not the same");
 	}
 
 	return (
