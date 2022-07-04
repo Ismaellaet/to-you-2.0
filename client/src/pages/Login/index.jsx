@@ -6,16 +6,22 @@ import { OutlinedButton } from "../../components/OutlinedButton";
 import { PrimaryButton } from "../../components/PrimaryButton";
 
 import "./styles.css";
+import axios from "axios";
 
 export function Login() {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState();
 
-	function handleSubmit(event) {
+	async function handleSubmit(event) {
 		event.preventDefault();
-		console.log(`
-		Username => ${username}
-		Password => ${password}`);
+		const URL = "http://localhost:5000/login";
+
+		await axios
+			.post(URL, {
+				username,
+				password,
+			})
+			.then(res => console.log(res));
 	}
 
 	return (
