@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CaretLeft } from "phosphor-react";
 
 import { OutlinedButton } from "../../components/OutlinedButton";
@@ -14,15 +14,22 @@ export function Login() {
 		password: "",
 	});
 
+	const navigate = useNavigate();
+
 	async function handleSubmit(event) {
 		event.preventDefault();
 
 		const URL = "http://localhost:5000/login";
+
 		const token = await axios
 			.post(URL, credentials)
 			.then(res => res.data)
 			.then(data => data.token)
 			.catch(err => console.error(err));
+
+		localStorage.setItem("token", JSON.stringify(token));
+
+		navigate("/home", { replace: true });
 	}
 
 	return (
