@@ -8,27 +8,27 @@ import { PrimaryButton } from "../../components/PrimaryButton";
 import "./styles.css";
 
 export function Register() {
-	const [username, setUsername] = useState("");
-	const [password, setPassword] = useState();
+	const [credentials, setCredentials] = useState({
+		username: "",
+		password: "",
+	});
 	const [confirmPassword, setConfirmPassword] = useState();
 
 	async function handleSubmit(event) {
 		event.preventDefault();
-		const URL = "http://localhost:5000/register";
 
-		if (confirmPassword === password) {
-			await axios
-				.post(URL, {
-					username,
-					password,
-				})
-				.then(res => console.log(res))
-				.catch(error => console.error(error));
+		if (confirmPassword === credentials.password) {
+			const URL = "http://localhost:5000/register";
+			const token = await axios
+				.post(URL, credentials)
+				.then(res => res.data)
+				.then(data => data.token)
+				.catch(err => console.error(err));
 
 			return;
 		}
 
-		console.log("Passwords are not the same");
+		console.log("Error => Passwords are not the same!");
 	}
 
 	return (
@@ -49,9 +49,14 @@ export function Register() {
 						type="text"
 						id="username"
 						name="username"
-						value={username}
+						value={credentials.username}
 						placeholder="Enter your Username"
-						onChange={e => setUsername(e.target.value)}
+						onChange={e =>
+							setCredentials({
+								...credentials,
+								username: e.target.value,
+							})
+						}
 					/>
 
 					<label htmlFor="password" className="sr-only">
@@ -63,17 +68,22 @@ export function Register() {
 						name="password"
 						id="password"
 						placeholder="Enter your Password"
-						onChange={e => setPassword(e.target.value)}
+						onChange={e =>
+							setCredentials({
+								...credentials,
+								password: e.target.value,
+							})
+						}
 					/>
 
-					<label htmlFor="password" className="sr-only">
+					<label htmlFor="confirm-password" className="sr-only">
 						Confirm your Password
 					</label>
 
 					<input
 						type="password"
 						name="confirmPassword"
-						id="confirmPassword"
+						id="confirm-password"
 						placeholder="Confirm your Password"
 						onChange={e => setConfirmPassword(e.target.value)}
 					/>

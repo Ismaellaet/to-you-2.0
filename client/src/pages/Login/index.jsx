@@ -9,19 +9,20 @@ import "./styles.css";
 import axios from "axios";
 
 export function Login() {
-	const [username, setUsername] = useState("");
-	const [password, setPassword] = useState();
+	const [credentials, setCredentials] = useState({
+		username: "",
+		password: "",
+	});
 
 	async function handleSubmit(event) {
 		event.preventDefault();
-		const URL = "http://localhost:5000/login";
 
-		await axios
-			.post(URL, {
-				username,
-				password,
-			})
-			.then(res => console.log(res));
+		const URL = "http://localhost:5000/login";
+		const token = await axios
+			.post(URL, credentials)
+			.then(res => res.data)
+			.then(data => data.token)
+			.catch(err => console.error(err));
 	}
 
 	return (
@@ -41,9 +42,14 @@ export function Login() {
 						type="text"
 						id="username"
 						name="username"
-						value={username}
+						value={credentials.username}
 						placeholder="Enter your Username"
-						onChange={e => setUsername(e.target.value)}
+						onChange={e =>
+							setCredentials({
+								...credentials,
+								username: e.target.value,
+							})
+						}
 					/>
 
 					<label htmlFor="password" className="sr-only">
@@ -55,7 +61,12 @@ export function Login() {
 						name="password"
 						id="password"
 						placeholder="Enter your Password"
-						onChange={e => setPassword(e.target.value)}
+						onChange={e =>
+							setCredentials({
+								...credentials,
+								password: e.target.value,
+							})
+						}
 					/>
 
 					<button>
