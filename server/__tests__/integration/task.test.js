@@ -24,7 +24,7 @@ describe("Tasks suit", () => {
 		});
 
 		const response = await request(app)
-			.get("/home")
+			.get("/task/list")
 			.set("Authorization", `Bearer ${user.generateToken()}`);
 
 		const isArray = Array.isArray(response.body);
@@ -36,7 +36,7 @@ describe("Tasks suit", () => {
 		const user = await factory.create("User");
 
 		const response = await request(app)
-			.post("/home")
+			.post("/task/create")
 			.set("Authorization", `Bearer ${user.generateToken()}`)
 			.send(TASK);
 

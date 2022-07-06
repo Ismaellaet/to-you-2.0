@@ -10,8 +10,8 @@ routes.post("/register", SessionController.register);
 
 routes.use(AuthMiddleware);
 
-routes.get("/home", TaskController.list);
+routes.get("/task/list", TaskController.list);
 
-routes.post("/home", TaskController.create);
+routes.post("/task/create", TaskController.create);
 
 module.exports = routes;
