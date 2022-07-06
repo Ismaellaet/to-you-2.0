@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Task } = require("../models");
 
 class TaskController {
 	async list(req, res) {
@@ -11,6 +11,21 @@ class TaskController {
 		const tasks = await user.getTasks();
 
 		return res.status(200).json(tasks);
+	}
+
+	async create(req, res) {
+		const infoTasks = req.body;
+
+		try {
+			const task = await Task.create({
+				...infoTasks,
+				user_id: req.userId,
+			});
+
+			return res.json("Task created successfully!");
+		} catch (error) {
+			console.error(error);
+		}
 	}
 }
 

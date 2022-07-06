@@ -12,4 +12,6 @@ routes.use(AuthMiddleware);
 
 routes.get("/home", TaskController.list);
 
+routes.post("/home", TaskController.create);
+
 module.exports = routes;

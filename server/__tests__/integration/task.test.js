@@ -4,6 +4,14 @@ const app = require("../../src/app");
 const truncate = require("../utils/truncate");
 const factory = require("../utils/factories");
 
+const TASK = {
+	title: "random title",
+	description: "random decription",
+	category: "randomCategory",
+	date_task: new Date(),
+	completed: true,
+};
+
 describe("Tasks suit", () => {
 	beforeEach(async () => {
 		await truncate();
@@ -22,5 +30,16 @@ describe("Tasks suit", () => {
 		const isArray = Array.isArray(response.body);
 
 		expect(isArray).toBe(true);
+	});
+
+	it("should create an user task", async () => {
+		const user = await factory.create("User");
+
+		const response = await request(app)
+			.post("/home")
+			.set("Authorization", `Bearer ${user.generateToken()}`)
+			.send(TASK);
+
+		expect(response.body).toBe("Task created successfully!");
 	});
 });
