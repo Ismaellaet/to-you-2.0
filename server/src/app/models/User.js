@@ -23,6 +23,15 @@ module.exports = (sequelize, DataTypes) => {
 		}
 	);
 
+	User.associate = models => {
+		User.hasMany(models.Task, {
+			foreignKey: {
+				name: "users_id",
+				allowNull: false,
+			},
+		});
+	};
+
 	User.prototype.checkPassword = function (password) {
 		return bcrypt.compare(password, this.password_hash);
 	};
