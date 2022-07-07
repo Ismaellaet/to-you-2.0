@@ -8,11 +8,11 @@ factory.define("User", User, {
 });
 
 factory.define("Task", Task, {
-	title: faker.random.words(3),
-	description: faker.lorem.sentences(1),
-	category: faker.word.noun(),
+	title: "random title",
+	description: "random decription",
+	category: "randomCategory",
 	date_task: new Date(),
-	completed: faker.datatype.boolean(),
+	completed: true,
 	user_id: 1,
 });
 

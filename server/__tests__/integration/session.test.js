@@ -66,7 +66,7 @@ describe("Authentication", () => {
 		const user = await factory.create("User");
 
 		const response = await request(app)
-			.get("/home")
+			.get("/task/list")
 			.set("Authorization", `Bearer ${user.generateToken()}`);
 
 		expect(response.status).toBe(200);
@@ -75,7 +75,7 @@ describe("Authentication", () => {
 	it("should NOT be able to access private routes WITHOUT jwt token", async () => {
 		const user = await factory.create("User");
 
-		const response = await request(app).get("/home");
+		const response = await request(app).get("/task/list");
 
 		expect(response.status).toBe(401);
 	});
