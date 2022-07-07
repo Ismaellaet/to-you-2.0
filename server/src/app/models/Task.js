@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
 			title: DataTypes.STRING,
 			description: DataTypes.STRING,
 			category: DataTypes.STRING,
-			date_task: DataTypes.DATE,
+			date: DataTypes.STRING,
 			completed: DataTypes.BOOLEAN,
 		},
 		{

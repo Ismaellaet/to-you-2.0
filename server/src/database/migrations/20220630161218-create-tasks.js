@@ -21,8 +21,8 @@ module.exports = {
 				type: Sequelize.STRING,
 				allowNull: false,
 			},
-			date_task: {
-				type: Sequelize.DATE,
+			date: {
+				type: Sequelize.STRING,
 			},
 			completed: {
 				type: Sequelize.BOOLEAN,
