@@ -8,6 +8,7 @@
 	--primary: hsl(162, 100%, 26%);
 	--border: hsl(162, 100%, 35%);
 	--inputs: hsl(240, 5%, 7%);
+	--stroker-divider: hsl(240, 6%, 21%);
 }
 
 * {
@@ -21,11 +22,15 @@
 body {
 	height: 100%;
 	width: 100%;
-
+	overflow: hidden;
 	background: var(--dark-bg);
 	color: white;
 
 	-webkit-font-smoothing: antialiased;
+}
+
+ul {
+	list-style: none;
 }
 
 .container {

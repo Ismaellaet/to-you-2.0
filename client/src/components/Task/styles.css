@@ -1,0 +1,82 @@
+.task {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 1.2rem;
+
+	background: var(--stroker-divider);
+	border-radius: 0.4rem;
+
+	padding: 1.2rem 2rem 1.2rem 1rem;
+}
+
+.task .title-date {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.4rem;
+
+	flex: 2;
+}
+
+.task .title-date .date {
+	font-size: 1.4rem;
+	color: var(--secondary-text);
+}
+
+.title,
+.date {
+	font-weight: 400;
+}
+
+.task .category {
+	background: var(--primary);
+	border-radius: 0.4rem;
+
+	padding: 0.4rem 0.8rem;
+
+	align-self: flex-end;
+	text-transform: capitalize;
+}
+
+/* Check Box */
+/* => Hide the browser's default checkbox */
+.task .check-input input {
+	position: absolute;
+	height: 0;
+	width: 0;
+
+	opacity: 0;
+	cursor: pointer;
+}
+
+/* => Create a custom checkbox */
+.task .check-input .checkmark {
+	height: 1.6rem;
+	width: 1.6rem;
+
+	border: 1px solid var(--primary);
+	border-radius: 2rem;
+}
+
+/* => Create the checkmark (hidden when not checked) */
+.task .check-input .checkmark::after {
+	display: none;
+	content: "";
+
+	position: relative;
+	bottom: 0.4rem;
+	left: 0.6rem;
+
+	width: 0.5rem;
+	height: 1.2rem;
+
+	border: 1px solid var(--border);
+	border-width: 0 0.2rem 0.2rem 0;
+
+	transform: rotate(45deg);
+}
+
+.task input:checked ~ .checkmark::after {
+	display: block;
+}

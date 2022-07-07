@@ -1,27 +1,45 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+import {
+	Briefcase,
+	GraduationCap,
+	HouseLine,
+	List,
+	Plus,
+} from "phosphor-react";
+
+import { NavBar } from "../../components/NavBar";
+import { Tasks } from "../../components/Tasks";
+
+import "./styles.css";
 
 export function Home() {
-	const [tasks, setTasks] = useState([]);
-
-	useEffect(() => {
-		(async () => {
-			const { data } = await axios.get("http://localhost:5000/home");
-
-			setTasks(data);
-		})();
-	}, []);
-
 	return (
-		<>
-			<ul>
-				{tasks.map(task => (
-					<li key={task.id}>
-						{task.title}{" "}
-						{task.description ? `=> ${task.description}` : ""}
+		<div className="container-home">
+			<List size={32} color="var(--border)" className="menu" />
+
+			<div className="categories-bar">
+				<ul className="categories">
+					<li className="category">
+						<Briefcase size={24} />
+						Work
 					</li>
-				))}
-			</ul>
-		</>
+					<li className="category">
+						<HouseLine size={24} />
+						Home
+					</li>
+					<li className="category">
+						<GraduationCap size={24} />
+						University
+					</li>
+					<li className="category">
+						<Plus size={24} />
+						New
+					</li>
+				</ul>
+			</div>
+
+			<Tasks />
+
+			<NavBar />
+		</div>
 	);
 }
