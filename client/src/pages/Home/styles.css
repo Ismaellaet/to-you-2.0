@@ -26,3 +26,9 @@
 	font-size: 1.2rem;
 	color: var(--text);
 }
+
+main {
+	max-height: calc(100% - 33.6rem);
+	margin-top: 3.2rem;
+	overflow: auto;
+}

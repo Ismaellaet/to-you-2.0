@@ -10,9 +10,3 @@
 .task-container {
 	width: 100%;
 }
-
-.today-completed {
-	max-height: calc(100% - 36rem);
-	margin-top: 3.2rem;
-	overflow: auto;
-}

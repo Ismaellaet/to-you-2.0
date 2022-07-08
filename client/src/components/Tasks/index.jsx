@@ -31,35 +31,33 @@ export function Tasks() {
 
 	return (
 		<>
-			<div className="today-completed">
-				<DropdownButton name="today">
-					{tasksToDo ? (
-						<ul className="tasks-wrapper">
-							{tasksToDo.map(task => (
-								<li key={task.id} className="task-container">
-									<Task task={task} />
-								</li>
-							))}
-						</ul>
-					) : (
-						""
-					)}
-				</DropdownButton>
+			<DropdownButton name="today">
+				{tasksToDo ? (
+					<ul className="tasks-wrapper">
+						{tasksToDo.map(task => (
+							<li key={task.id} className="task-container">
+								<Task task={task} />
+							</li>
+						))}
+					</ul>
+				) : (
+					""
+				)}
+			</DropdownButton>
 
-				<DropdownButton name="completed">
-					{tasksToDo ? (
-						<ul className="tasks-wrapper">
-							{tasksCompleted.map(task => (
-								<li key={task.id} className="task-container">
-									<Task task={task} />
-								</li>
-							))}
-						</ul>
-					) : (
-						""
-					)}
-				</DropdownButton>
-			</div>
+			<DropdownButton name="completed">
+				{tasksToDo ? (
+					<ul className="tasks-wrapper">
+						{tasksCompleted.map(task => (
+							<li key={task.id} className="task-container">
+								<Task task={task} />
+							</li>
+						))}
+					</ul>
+				) : (
+					""
+				)}
+			</DropdownButton>
 		</>
 	);
 }
