@@ -9,6 +9,7 @@
 	--border: hsl(162, 100%, 35%);
 	--inputs: hsl(240, 5%, 7%);
 	--stroker-divider: hsl(240, 6%, 21%);
+	--error: hsl(355, 91%, 66%);
 }
 
 * {
