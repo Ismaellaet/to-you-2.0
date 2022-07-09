@@ -2,7 +2,7 @@ import { XSquare, Timer, Tag, PaperPlaneRight } from "phosphor-react";
 
 import "./styles.css";
 
-export function Modal({ active }) {
+export function AddTask({ active }) {
 	return (
 		<div className="modal-overlay">
 			<form className="modal">

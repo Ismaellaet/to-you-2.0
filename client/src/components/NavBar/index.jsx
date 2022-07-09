@@ -1,6 +1,6 @@
 import { House, CalendarCheck, Plus } from "phosphor-react";
 import { useState } from "react";
-import { Modal } from "../../components/Modal";
+import { AddTask } from "../../components/Modals/AddTask";
 
 import "./styles.css";
 
@@ -22,7 +22,7 @@ export function NavBar() {
 				Calendar
 			</a>
 
-			{active && <Modal active={setActive} />}
+			{active && <AddTask active={setActive} />}
 		</div>
 	);
 }

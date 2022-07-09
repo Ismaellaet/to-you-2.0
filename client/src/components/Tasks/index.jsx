@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import { DropdownButton } from "../DropdownButton";
+import { Dropdown } from "../Buttons/Dropdown";
 import { Task } from "../Task";
 
 import "./styles.css";
@@ -31,7 +31,7 @@ export function Tasks() {
 
 	return (
 		<>
-			<DropdownButton name="today">
+			<Dropdown name="today">
 				{tasksToDo ? (
 					<ul className="tasks-wrapper">
 						{tasksToDo.map(task => (
@@ -43,9 +43,9 @@ export function Tasks() {
 				) : (
 					""
 				)}
-			</DropdownButton>
+			</Dropdown>
 
-			<DropdownButton name="completed">
+			<Dropdown name="completed">
 				{tasksToDo ? (
 					<ul className="tasks-wrapper">
 						{tasksCompleted.map(task => (
@@ -57,7 +57,7 @@ export function Tasks() {
 				) : (
 					""
 				)}
-			</DropdownButton>
+			</Dropdown>
 		</>
 	);
 }
