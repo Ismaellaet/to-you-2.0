@@ -1,0 +1,50 @@
+form.modal {
+	flex-direction: column;
+}
+
+fieldset {
+	width: 100%;
+	border: none;
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 2.4rem;
+}
+
+legend {
+	font-size: 2rem;
+	font-weight: 700;
+	margin-bottom: 2.4rem;
+}
+
+.modal footer {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 2.4rem;
+
+	width: 100%;
+}
+
+.modal footer .category-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.modal footer .category-footer .category {
+	background: var(--stroker-divider);
+	border-radius: 0.4rem;
+
+	padding: 0.4rem 0.8rem;
+
+	text-transform: capitalize;
+	font-size: 1.2rem;
+}
+
+.modal footer .send {
+	align-self: flex-end;
+}

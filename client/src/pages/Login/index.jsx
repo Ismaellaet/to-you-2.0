@@ -40,7 +40,7 @@ export function Login() {
 				</Link>
 
 				<h2>Login</h2>
-				<form onSubmit={handleSubmit}>
+				<form className="login-form" onSubmit={handleSubmit}>
 					<label htmlFor="username" className="sr-only">
 						Enter your Username :
 					</label>

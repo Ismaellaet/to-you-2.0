@@ -19,7 +19,7 @@ export function Tasks() {
 		};
 
 		tasksList();
-	}, []);
+	}, [tasks]);
 
 	function separateTasks() {
 		return tasks.map(task => {
