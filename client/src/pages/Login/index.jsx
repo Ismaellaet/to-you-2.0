@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { CaretLeft } from "phosphor-react";
 
-import { OutlinedButton } from "../../components/OutlinedButton";
-import { PrimaryButton } from "../../components/PrimaryButton";
+import { Outlined } from "../../components/Buttons/Outlined";
+import { Primary } from "../../components/Buttons/Primary";
 
 import "./styles.css";
 import axios from "axios";
@@ -77,7 +77,7 @@ export function Login() {
 					/>
 
 					<button>
-						<PrimaryButton text="login" />
+						<Primary text="login" />
 					</button>
 				</form>
 
@@ -88,7 +88,7 @@ export function Login() {
 				</div>
 
 				<Link to="/Register" className="button">
-					<OutlinedButton text="register" />
+					<Outlined text="register" />
 				</Link>
 			</div>
 		</div>

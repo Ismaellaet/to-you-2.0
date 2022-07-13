@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { CaretLeft } from "phosphor-react";
 import axios from "axios";
 
-import { PrimaryButton } from "../../components/PrimaryButton";
+import { Primary } from "../../components/Buttons/Primary";
 
 import "./styles.css";
 
@@ -96,7 +96,7 @@ export function Register() {
 					/>
 
 					<button>
-						<PrimaryButton text="register" />
+						<Primary text="register" />
 					</button>
 				</form>
 			</div>

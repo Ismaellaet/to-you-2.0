@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import "./styles.css";
 
-export function DropdownButton(props) {
+export function Dropdown(props) {
 	const [open, setOpen] = useState(false);
 
 	return (
