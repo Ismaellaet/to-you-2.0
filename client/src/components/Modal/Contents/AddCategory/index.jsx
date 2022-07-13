@@ -18,6 +18,7 @@ export function AddCategory({ active, handleContent }) {
 				handleContent(
 					<AddTask
 						category={props.name}
+						Icon={props.Icon}
 						active={active}
 						handleContent={handleContent}
 					/>
@@ -25,7 +26,7 @@ export function AddCategory({ active, handleContent }) {
 			}}
 		>
 			<div className="icon">
-				<props.icon size={32} color="white" />
+				<props.Icon size={32} color="white" />
 			</div>
 
 			{props.name}
@@ -43,10 +44,10 @@ export function AddCategory({ active, handleContent }) {
 			<span>Choose category</span>
 
 			<ul className="categories-group">
-				<Category icon={Briefcase} name="work" />
-				<Category icon={Heartbeat} name="health" />
-				<Category icon={ShoppingCartSimple} name="shopping" />
-				<Category icon={User} name="personal" />
+				<Category Icon={Briefcase} name="work" />
+				<Category Icon={Heartbeat} name="health" />
+				<Category Icon={ShoppingCartSimple} name="shopping" />
+				<Category Icon={User} name="personal" />
 			</ul>
 		</div>
 	);

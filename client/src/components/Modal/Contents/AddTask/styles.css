@@ -36,6 +36,10 @@ legend {
 }
 
 .modal footer .category-footer .category {
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+
 	background: var(--stroker-divider);
 	border-radius: 0.4rem;
 

@@ -6,7 +6,7 @@ import { AddCategory } from "../AddCategory";
 
 import "./styles.css";
 
-export function AddTask({ active, handleContent, category }) {
+export function AddTask({ active, handleContent, category, Icon }) {
 	const [taskInfos, setTaskInfos] = useState({
 		title: "",
 		description: "",
@@ -80,7 +80,10 @@ export function AddTask({ active, handleContent, category }) {
 					<div className="category-footer">
 						<Tag className="tag" size={24} />
 
-						<div className="category">{category}</div>
+						<div className="category">
+							<Icon color="white" size={20} />
+							{category}
+						</div>
 					</div>
 					<button className="send">
 						<PaperPlaneRight size={24} color="var(--border)" />
