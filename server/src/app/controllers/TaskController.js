@@ -27,6 +27,22 @@ class TaskController {
 			console.error(error);
 		}
 	}
+
+	async update(req, res) {
+		const { id, item } = req.body;
+
+		try {
+			const task = await Task.update(item, {
+				where: {
+					id,
+				},
+			});
+
+			return res.json(`Task ${id} updated successfully!`);
+		} catch (error) {
+			console.error(error);
+		}
+	}
 }
 
 module.exports = new TaskController();

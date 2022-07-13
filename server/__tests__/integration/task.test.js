@@ -42,4 +42,23 @@ describe("Tasks suit", () => {
 
 		expect(response.body).toBe("Task created successfully!");
 	});
+
+	it("should update a task", async () => {
+		const user = await factory.create("User");
+		const task = await factory.create("Task", {
+			user_id: user.id,
+		});
+
+		const response = await request(app)
+			.post("/task/update")
+			.set("Authorization", `Bearer ${user.generateToken()}`)
+			.send({
+				id: task.id,
+				item: {
+					completed: true,
+				},
+			});
+
+		expect(response.body).toBe(`Task ${task.id} updated successfully!`);
+	});
 });

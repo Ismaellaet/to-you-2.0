@@ -14,4 +14,6 @@ routes.get("/task/list", TaskController.list);
 
 routes.post("/task/create", TaskController.create);
 
+routes.post("/task/update", TaskController.update);
+
 module.exports = routes;
