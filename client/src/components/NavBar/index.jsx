@@ -1,8 +1,11 @@
 import { House, CalendarCheck, Plus } from "phosphor-react";
+import { useState } from "react";
+import { AddTask } from "../../components/Modals/AddTask";
 
 import "./styles.css";
 
 export function NavBar() {
+	const [active, setActive] = useState(false);
 	return (
 		<div className="bar">
 			<a className="item">
@@ -10,7 +13,7 @@ export function NavBar() {
 				Index
 			</a>
 
-			<button className="circle">
+			<button className="add-task" onClick={() => setActive(true)}>
 				<Plus size={32} color="white" />
 			</button>
 
@@ -18,6 +21,8 @@ export function NavBar() {
 				<CalendarCheck size={32} />
 				Calendar
 			</a>
+
+			{active && <AddTask active={setActive} />}
 		</div>
 	);
 }
