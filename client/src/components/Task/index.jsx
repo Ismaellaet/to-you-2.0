@@ -4,13 +4,27 @@ import { format } from "date-fns";
 import "./styles.css";
 
 export function Task({ task }) {
-	async function completeTask() {}
+	async function completeTask() {
+		await axios
+			.put("http://localhost:5000/task/update", {
+				id: task.id,
+				item: {
+					completed: !task.completed,
+				},
+			})
+			.then(res => res.data);
+	}
 
 	return (
 		<>
 			<label htmlFor={task.id} className="task">
 				<div className="check-input">
-					<input type="checkbox" id={task.id} />
+					<input
+						type="checkbox"
+						id={task.id}
+						onChange={completeTask}
+						checked={task.completed ? true : false}
+					/>
 					<span className="checkmark"></span>
 				</div>
 
