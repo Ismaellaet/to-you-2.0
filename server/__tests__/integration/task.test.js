@@ -50,7 +50,7 @@ describe("Tasks suit", () => {
 		});
 
 		const response = await request(app)
-			.post("/task/update")
+			.put("/task/update")
 			.set("Authorization", `Bearer ${user.generateToken()}`)
 			.send({
 				id: task.id,

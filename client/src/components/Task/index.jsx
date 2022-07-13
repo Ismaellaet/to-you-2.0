@@ -1,8 +1,11 @@
+import axios from "axios";
 import { format } from "date-fns";
 
 import "./styles.css";
 
 export function Task({ task }) {
+	async function completeTask() {}
+
 	return (
 		<>
 			<label htmlFor={task.id} className="task">
