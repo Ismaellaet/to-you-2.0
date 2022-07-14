@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import { Dropdown } from "../Buttons/Dropdown";
-import { Task } from "../Task";
+import { Task } from "./Task";
 
 import "./styles.css";
 
